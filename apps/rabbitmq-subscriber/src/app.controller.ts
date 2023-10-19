@@ -7,10 +7,13 @@ import {
   RmqContext,
 } from '@nestjs/microservices';
 import { MongoClient } from 'mongodb';
+import * as sharedUtils from 'shared-utils';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) {
+    sharedUtils.subtract(1, 2);
+  }
 
   @MessagePattern({ cmd: 'create' })
   async handleCreateEvent(
@@ -24,6 +27,8 @@ export class AppController {
     const message = JSON.parse(originalMsg.content.toString());
 
     console.log('message', message);
+
+    sharedUtils.subtract(1, 2);
 
     channel.ack(originalMsg);
     console.log('message acknowledged');
