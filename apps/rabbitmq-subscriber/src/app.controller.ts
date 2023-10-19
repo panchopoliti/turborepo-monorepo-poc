@@ -8,6 +8,7 @@ import {
 } from '@nestjs/microservices';
 import { MongoClient } from 'mongodb';
 import * as sharedUtils from 'shared-utils';
+import { share } from 'rxjs';
 
 @Controller()
 export class AppController {
@@ -28,7 +29,10 @@ export class AppController {
 
     console.log('message', message);
 
-    console.log('Return from shared utils call', sharedUtils.subtract(1, 2));
+    const a = sharedUtils.subtract(2, 1);
+
+    console.log('a', a);
+    console.log('b');
 
     channel.ack(originalMsg);
     console.log('message acknowledged');
