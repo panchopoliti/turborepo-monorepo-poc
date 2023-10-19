@@ -25,6 +25,7 @@ async function bootstrap() {
   );
   await app.listen();
 
+  console.log('Hello world from main');
   console.log('Microservice listening on port: ', 5672);
 }
 
