@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "rm -rf dist && nest build",
+    "build": "nest build",
     "dev": "nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -75,6 +75,7 @@
   },
   "engines": {
     "node": ">=16.x",
+    "npm": "please-use-yarn",
     "yarn": ">=1.15"
   }
 }
