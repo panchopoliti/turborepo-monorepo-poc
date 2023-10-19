@@ -28,7 +28,7 @@ export class AppController {
 
     console.log('message', message);
 
-    sharedUtils.subtract(1, 2);
+    console.log('Return from shared utils call', sharedUtils.subtract(1, 2));
 
     channel.ack(originalMsg);
     console.log('message acknowledged');
